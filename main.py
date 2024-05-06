@@ -1,24 +1,20 @@
-def main():
+def main():  
     book_path = "books/frankenstein.txt"
     file_contents = get_book_text(book_path)
     num_words = word_count(file_contents)
     letter_count = count_letters(file_contents)
+    print(letter_count)
     #print(f"Words found in document: {num_words}. Letter counts: {letter_count}")
-    
-    print(f"word count: {num_words}, character dictionary: {letter_count}")
-    
-    
-    
 
-def get_book_text(path):
+def get_book_text(path): # Open given book file path and return the file as a string
     with open(path) as f:
         return f.read()
 
-def word_count(string):
+def word_count(string):  # Function counts numer of words in document
     words = string.split()
     return len(words)
 
-def count_letters(string):
+def count_letters(string):  # Function counts instances of each letter in document and adds them to a list.
     lowered_string = string.lower()
     string_words = list(lowered_string)
     wordcount_dictionary = {}
@@ -32,7 +28,19 @@ def count_letters(string):
         
     return wordcount_dictionary
 
+def dictToList(entryDict):  # loop through char count dictionary and append to a list of dictionaries
+    dict_list = []
+    for a, b in entryDict.items():
+        count_dict = {"character" : a, "count" : b}
+        dict_list.append(count_dict)
+    return dict_list
 
+def sort_on(dict):  # returns the value of 'count' key in given dictionary list
+    return dict["count"]
+
+def sort_dict_list(list): # sorts dict list is descending order
+    list.sort(reverse=True, key=sort_on)
+    return list
 
 
 
