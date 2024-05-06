@@ -3,7 +3,8 @@ def main():
     file_contents = get_book_text(book_path)
     num_words = word_count(file_contents)
     letter_count = count_letters(file_contents)
-    print(letter_count)
+    sorted_dict_list = sort_dict_list(dictToList(letter_count))
+    print(sorted_dict_list)
     #print(f"Words found in document: {num_words}. Letter counts: {letter_count}")
 
 def get_book_text(path): # Open given book file path and return the file as a string
@@ -35,12 +36,12 @@ def dictToList(entryDict):  # loop through char count dictionary and append to a
         dict_list.append(count_dict)
     return dict_list
 
-def sort_on(dict):  # returns the value of 'count' key in given dictionary list
-    return dict["count"]
+def sort_on(entryDict):  # returns the value of 'count' key in given dictionary list
+    return entryDict["count"]
 
-def sort_dict_list(list): # sorts dict list is descending order
-    list.sort(reverse=True, key=sort_on)
-    return list
+def sort_dict_list(dictList): # sorts dict list is descending order
+    dictList.sort(reverse=True, key=sort_on)
+    return dictList
 
 
 
