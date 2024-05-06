@@ -4,7 +4,7 @@ def main():
     num_words = word_count(file_contents)
     letter_count = count_letters(file_contents)
     sorted_dict_list = sort_dict_list(dictToList(letter_count))
-    print_report(sorted_dict_list, book_path)
+    print_report(sorted_dict_list, book_path, num_words)
     #print(sorted_dict_list)
 
 
@@ -44,8 +44,14 @@ def sort_dict_list(dictList): # sorts dict list is descending order
     dictList.sort(reverse=True, key=sort_on)
     return dictList
 
-def print_report(sortedList, bookPath):
-    print(f"--- Begin report of {bookPath} ---")
+def print_report(sortedList, bookPath, wordCount):
+    print(f"--- Begin report of {bookPath} ---\n{wordCount} words found in the document.\n\n")
+
+    for i in range(0, len(sortedList)):
+        singleDict = sortedList[i]
+        singleChar = singleDict['character']
+        singleCount = singleDict['count']
+        print(f"The {singleChar} character was found {singleCount} times.")
 
 
 
