@@ -52,6 +52,7 @@ def print_report(sortedList, bookPath, wordCount):
         singleChar = singleDict['character']
         singleCount = singleDict['count']
         print(f"The '{singleChar}' character was found {singleCount} times.")
+    print("--- End report ---")
 
 
 
