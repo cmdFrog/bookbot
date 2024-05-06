@@ -4,8 +4,9 @@ def main():
     num_words = word_count(file_contents)
     letter_count = count_letters(file_contents)
     sorted_dict_list = sort_dict_list(dictToList(letter_count))
-    print(sorted_dict_list)
-    #print(f"Words found in document: {num_words}. Letter counts: {letter_count}")
+    print_report(sorted_dict_list, book_path)
+    #print(sorted_dict_list)
+
 
 def get_book_text(path): # Open given book file path and return the file as a string
     with open(path) as f:
@@ -42,6 +43,9 @@ def sort_on(entryDict):  # returns the value of 'count' key in given dictionary 
 def sort_dict_list(dictList): # sorts dict list is descending order
     dictList.sort(reverse=True, key=sort_on)
     return dictList
+
+def print_report(sortedList, bookPath):
+    print(f"--- Begin report of {bookPath} ---")
 
 
 
