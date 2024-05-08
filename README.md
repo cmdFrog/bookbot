@@ -1,6 +1,6 @@
 # bookbot
 
-bookbot is my first git project. It is a python CLI program for generating simple reports on documents or books.
+bookbot is my first git project. It is a Python CLI program for generating simple reports on documents or books.
 
 ## Usage
 
