@@ -1,6 +1,8 @@
 def main():  
-    book_path = "books/frankenstein.txt"
+    book_path = "books/book.txt"
     file_contents = get_book_text(book_path)
+    if file_contents == None:
+        return None
     num_words = word_count(file_contents)
     letter_count = count_letters(file_contents)
     sorted_dict_list = sort_dict_list(dictToList(letter_count))
@@ -9,8 +11,12 @@ def main():
 
 
 def get_book_text(path): # Open given book file path and return the file as a string
-    with open(path) as f:
-        return f.read()
+    try:
+        with open(path) as f:
+            return f.read()
+    except FileNotFoundError:
+            print("File not found.\nThe program expects a book.txt file located in the 'bookbot/books' directory.")
+            return None
 
 def word_count(string):  # Function counts numer of words in document
     words = string.split()
